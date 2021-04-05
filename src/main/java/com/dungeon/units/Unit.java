@@ -1,13 +1,16 @@
 package com.dungeon.units;
 
-public class Unit {
+import com.dungeon.weapons.Attacking;
+import com.dungeon.weapons.Weapon;
+
+public class Unit implements Attacking {
 
     protected String name ;
     protected String movementMethod;
-    protected int health;
+    protected int currentHealth;
+    protected int maxHealth;
     protected double armor;
-    protected  String weapon;
-    protected int damage;
+    protected Weapon weapon;
 
     public String getName() {
         return name;
@@ -25,12 +28,12 @@ public class Unit {
         this.movementMethod = movementMethod;
     }
 
-    public int getHealth() {
-        return health;
+    public int getCurrentHealth() {
+        return currentHealth;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
     }
 
     public double getArmor() {
@@ -41,31 +44,55 @@ public class Unit {
         this.armor = armor;
     }
 
-    public String getWeapon() {
+    public Weapon getWeapon() {
         return weapon;
     }
 
-    public void setWeapon(String weapon) {
-        this.weapon = weapon;
+    public void setWeapon(Weapon weapon) {
+        this. weapon =  weapon;
     }
 
-    public int getDamage() {
-        return damage;
-    }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
-    public  void takeDamage(int incomingDamage){
+    public void takeDamage(int incomingDamage){
         int damageReduction = (int) (incomingDamage * (armor / 100));
         int reducedDamage =incomingDamage - damageReduction;
-        health= health- reducedDamage;
+        currentHealth = currentHealth - reducedDamage;
         System.out.println(name + " got " + reducedDamage + " damage");
 
     }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+        currentHealth = maxHealth;
+    }
+
+    public void setArmor(double armor) {
+        this.armor = armor;
+    }
+
     public boolean isAlive(){
-        return health > 0;
+        return currentHealth > 0;
+    }
+
+    public void revive() {
+        this.currentHealth = this.maxHealth;
+    }
+
+    @Override
+    public void attack(Unit enemy) {
+        this.weapon.attack(enemy);
+    }
+
+    public void heal(int healing) {
+        if (currentHealth+healing>maxHealth) {
+            revive();
+        } else {
+            currentHealth+=healing;
+        }
     }
 
     @Override
@@ -73,10 +100,9 @@ public class Unit {
         return "Unit{" +
                 "\nname='" + name + '\'' +
                 ", \nmovementMethod='" + movementMethod + '\'' +
-                ", \nhealth=" + health +
+                ", \nhealth=" + currentHealth + '/' + maxHealth+
                 ", \narmor=" + armor +
                 ", \nweapon='" + weapon + '\'' +
-                ", \ndamage=" + damage +
                 '}';
     }
 }
