@@ -1,4 +1,4 @@
-package com.dungeon.weapons;
+package com.dungeon.game.weapons;
 
 import java.util.EnumMap;
 import java.util.Map;

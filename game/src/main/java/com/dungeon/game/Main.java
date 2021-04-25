@@ -1,16 +1,8 @@
-package com.dungeon;
+package com.dungeon.game;
 
-import com.dungeon.units.Unit;
-import com.dungeon.weapons.Axe;
-import com.dungeon.weapons.DamageType;
-import com.dungeon.weapons.Glaive;
-import com.dungeon.weapons.Sword;
-import com.dungeon.weapons.Weapon;
-
-import java.util.EnumMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import com.dungeon.game.units.Unit;
+import com.dungeon.game.weapons.Axe;
+import com.dungeon.game.weapons.Glaive;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package com.dungeon.weapons;
+package com.dungeon.game.weapons;
 
-import com.dungeon.units.Unit;
+import com.dungeon.game.units.Unit;
 
 import java.util.Random;
 

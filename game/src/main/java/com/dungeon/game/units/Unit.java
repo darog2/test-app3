@@ -1,7 +1,7 @@
-package com.dungeon.units;
+package com.dungeon.game.units;
 
-import com.dungeon.weapons.Attacking;
-import com.dungeon.weapons.Weapon;
+import com.dungeon.game.weapons.Attacking;
+import com.dungeon.game.weapons.Weapon;
 
 public class Unit implements Attacking {
 

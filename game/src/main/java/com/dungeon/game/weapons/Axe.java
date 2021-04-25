@@ -1,4 +1,4 @@
-package com.dungeon.weapons;
+package com.dungeon.game.weapons;
 
 public class Axe extends Weapon{
     public Axe() {
