@@ -11,6 +11,7 @@
     <modules>
         <module>school</module>
         <module>game</module>
+        <module>com.dungeon.pizza</module>
     </modules>
     <dependencies>
         <dependency>
