@@ -8,6 +8,10 @@ import com.dungeon.pizza.model.Pizza;
 import com.dungeon.pizza.util.DateFormatUtil;
 import org.apache.commons.lang3.StringUtils;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
@@ -61,7 +65,6 @@ public class OrderService {
             report.append(String.format(CENTERED_PIZZA_NAME_HEADER, StringUtils.center(pizzaNameHeader,50)));
             report.append(EMPTY_LINE);
             report.append(System.lineSeparator());
-
             for (Map.Entry<Component, ComponentAmount> compositionEntry : pizzaEntry.getKey().getComposition().entrySet()) {
                 price = price + compositionEntry.getKey().getPrice() * compositionEntry.getValue().getPriceMultiplier();
                 String formattedPrice = String.format(PRICE_TEMPLATE,
@@ -99,7 +102,7 @@ public class OrderService {
         System.out.println(report);
     }
 
-    public void writeOrderToFile(Order order) {
+    private void writeOrderToFile(Order order) {
         String report = prepareReport(order);
         try (FileWriter writer = new FileWriter(generateOrderName(order))) {
             writer.write(report);
@@ -108,10 +111,28 @@ public class OrderService {
             e.printStackTrace();
         }
     }
+    public void saveOrder(Order order) {
+        printOrder(order);
+        writeOrderToFile(order);
+        writeOrderToXmlFile(order,"order.xml");
+    }
 
     private String generateOrderName(Order order) {
         return String.format(REPORT_NAME_TEMPLATE,
                 order.getClient().getName(),
                 DateFormatUtil.formatDateAsReportNamePart(order.getOrderDate()));
+    }
+    private void writeOrderToXmlFile(Order order, String filePath) {
+        try {
+            JAXBContext context = JAXBContext.newInstance(Order.class);
+            Marshaller marshaller = context.createMarshaller();
+            // устанавливаем флаг для читабельного вывода XML в JAXB
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+            // маршаллинг объекта в файл
+            marshaller.marshal(order, new File(filePath));
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
     }
 }

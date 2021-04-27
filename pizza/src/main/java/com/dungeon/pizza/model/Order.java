@@ -1,18 +1,31 @@
 package com.dungeon.pizza.model;
 
+import com.dungeon.pizza.service.adapter.PizzaMapAdapter;
 import lombok.Data;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 @Data
+@XmlRootElement(name = "Order")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"client","orderDate","deliveryDate","pizzaMap",})
 public class Order {
+    @XmlElement(name = "Pizzas")
+    @XmlJavaTypeAdapter(PizzaMapAdapter.class)
     private Map<Pizza, Integer> pizzaMap;
+    @XmlElement
     private Client client;
+    @XmlElement
     private Date orderDate;
+    @XmlElement
     private Date deliveryDate;
 
     public Order(Client client) {

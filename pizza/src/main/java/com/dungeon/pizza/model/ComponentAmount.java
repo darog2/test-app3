@@ -1,5 +1,11 @@
 package com.dungeon.pizza.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlEnum;
+
+@XmlEnum
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public enum ComponentAmount {
     NONE(0, "none"),
     LESS(0.5, "Less"),
