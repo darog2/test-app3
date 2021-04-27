@@ -19,7 +19,7 @@ import java.util.Map;
 @XmlType(propOrder = {"client","orderDate","deliveryDate","pizzaMap",})
 public class Order {
     @XmlElement(name = "Pizzas")
-    @XmlJavaTypeAdapter(PizzaMapAdapter.class)
+//    @XmlJavaTypeAdapter(PizzaMapAdapter.class)
     private Map<Pizza, Integer> pizzaMap;
     @XmlElement
     private Client client;

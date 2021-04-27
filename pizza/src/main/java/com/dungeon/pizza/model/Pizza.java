@@ -14,7 +14,7 @@ import java.util.Map;
 @Data
 @XmlType(propOrder = {"name", "composition"})
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlTransient
+//@XmlTransient
 public class Pizza {
     @XmlAttribute
     protected String name;
