@@ -58,11 +58,11 @@ public class OrderService {
         report.append(EMPTY_LINE);
         report.append(System.lineSeparator());
         double totalPrice = 0;
-        for(Map.Entry<Pizza,Integer>pizzaEntry: order.getPizzaMap().entrySet()) {
+        for (Map.Entry<Pizza, Integer> pizzaEntry : order.getPizzaMap().entrySet()) {
             double price = Pizza.MIN_PRICE;
             String formatPizzaName = formatPizzaName(pizzaEntry.getKey());
-            String pizzaNameHeader = String.format(PIZZA_NAME_HEADER, formatPizzaName,pizzaEntry.getValue());
-            report.append(String.format(CENTERED_PIZZA_NAME_HEADER, StringUtils.center(pizzaNameHeader,50)));
+            String pizzaNameHeader = String.format(PIZZA_NAME_HEADER, formatPizzaName, pizzaEntry.getValue());
+            report.append(String.format(CENTERED_PIZZA_NAME_HEADER, StringUtils.center(pizzaNameHeader, 50)));
             report.append(EMPTY_LINE);
             report.append(System.lineSeparator());
             for (Map.Entry<Component, ComponentAmount> compositionEntry : pizzaEntry.getKey().getComposition().entrySet()) {
@@ -78,23 +78,24 @@ public class OrderService {
             String formattedPizzaPrice = String.format(PRICE_PER_PIZZA_NUMBER_TEMPLATE,
                     price);
             report.append(String.format(PRICE_PER, formatPizzaName));
-            report.append(String.format(PRICE_PER_PIZZA,StringUtils.leftPad(formattedPizzaPrice,48)));
+            report.append(String.format(PRICE_PER_PIZZA, StringUtils.leftPad(formattedPizzaPrice, 48)));
             report.append(EMPTY_LINE);
             report.append(System.lineSeparator());
             report.append(EMPTY_LINE);
             report.append(System.lineSeparator());
 //            report.append(String.format(BASE_PRICE, Pizza.MIN_PRICE));
-            totalPrice = totalPrice + price *pizzaEntry.getValue();
+            totalPrice = totalPrice + price * pizzaEntry.getValue();
         }
         report.append(MIDDLE_BORDER);
         report.append(System.lineSeparator());
-        report.append(String.format(TOTAL_PRICE,totalPrice));
+        report.append(String.format(TOTAL_PRICE, totalPrice));
         report.append(MIDDLE_BORDER);
         report.append(System.lineSeparator());
         return report.toString();
     }
+
     private String formatPizzaName(Pizza pizza) {
-        return String.format(PIZZA_NAME_TEMPLATE,pizza.getName());
+        return String.format(PIZZA_NAME_TEMPLATE, pizza.getName());
     }
 
     public void printOrder(Order order) {
@@ -111,10 +112,11 @@ public class OrderService {
             e.printStackTrace();
         }
     }
+
     public void saveOrder(Order order) {
         printOrder(order);
         writeOrderToFile(order);
-        writeOrderToXmlFile(order,"order.xml");
+        writeOrderToXmlFile(order, "order1.xml");
     }
 
     private String generateOrderName(Order order) {
@@ -122,6 +124,7 @@ public class OrderService {
                 order.getClient().getName(),
                 DateFormatUtil.formatDateAsReportNamePart(order.getOrderDate()));
     }
+
     private void writeOrderToXmlFile(Order order, String filePath) {
         try {
             JAXBContext context = JAXBContext.newInstance(Order.class);

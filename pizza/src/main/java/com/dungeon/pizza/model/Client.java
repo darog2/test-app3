@@ -3,7 +3,6 @@ package com.dungeon.pizza.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -13,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType(propOrder = {"name","phoneNumber","address",})
+@XmlType(propOrder = {"name", "phoneNumber", "address",})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Client {
     @XmlAttribute

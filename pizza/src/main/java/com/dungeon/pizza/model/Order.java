@@ -16,10 +16,10 @@ import java.util.Map;
 @Data
 @XmlRootElement(name = "Order")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"client","orderDate","deliveryDate","pizzaMap",})
+@XmlType(propOrder = {"client", "orderDate", "deliveryDate", "pizzaMap",})
 public class Order {
     @XmlElement(name = "Pizzas")
-//    @XmlJavaTypeAdapter(PizzaMapAdapter.class)
+    @XmlJavaTypeAdapter(PizzaMapAdapter.class)
     private Map<Pizza, Integer> pizzaMap;
     @XmlElement
     private Client client;
@@ -42,15 +42,15 @@ public class Order {
     public void addPizza(Pizza pizza, Integer count) {
         if (pizzaMap.containsKey(pizza)) {
             int existingCount = pizzaMap.get(pizza);
-            existingCount+=count;
-            pizzaMap.replace(pizza,existingCount);
+            existingCount += count;
+            pizzaMap.replace(pizza, existingCount);
         } else {
             this.pizzaMap.put(pizza, count);
         }
     }
 
     public void addPizza(Pizza pizza) {
-        addPizza(pizza,1);
+        addPizza(pizza, 1);
     }
 
 }

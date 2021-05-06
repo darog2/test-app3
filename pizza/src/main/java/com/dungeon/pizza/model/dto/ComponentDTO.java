@@ -1,6 +1,7 @@
 package com.dungeon.pizza.model.dto;
 
-import com.dungeon.pizza.model.Pizza;
+import com.dungeon.pizza.model.Component;
+import com.dungeon.pizza.model.ComponentAmount;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,18 +14,18 @@ import javax.xml.bind.annotation.XmlType;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@XmlType(name = "Pizza")
+@XmlType(name = "Component")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlAccessorOrder(XmlAccessOrder.ALPHABETICAL)
-public class PizzaDTO extends Pizza {
+public class ComponentDTO extends Component {
     @XmlAttribute(name = "quantity")
-    private Integer quantity;
+    private ComponentAmount quantity;
 
-    public PizzaDTO() {
+    public ComponentDTO() {
     }
 
-    public PizzaDTO(Pizza pizza, Integer quantity) {
-        super(pizza);
+    public ComponentDTO(Component component, ComponentAmount quantity) {
+        super(component.getName(), component.getPrice());
         this.quantity = quantity;
     }
 }

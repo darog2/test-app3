@@ -15,7 +15,7 @@ public class PizzaMapAdapter
     public Map<Pizza, Integer> unmarshal(PizzaCollectionDTO xmlMap) throws Exception {
         Map<Pizza, Integer> result = new HashMap<>();
         //обычный цикл
-        for (PizzaDTO pizzaDTO : xmlMap.getEntries()){
+        for (PizzaDTO pizzaDTO : xmlMap.getEntries()) {
             result.put((Pizza) pizzaDTO, pizzaDTO.getQuantity());
         }
         return result;
@@ -23,10 +23,11 @@ public class PizzaMapAdapter
     }
 
     @Override
-    public PizzaCollectionDTO marshal(Map<Pizza,Integer> modelMap) throws Exception {
+    public PizzaCollectionDTO marshal(Map<Pizza, Integer> modelMap) throws Exception {
         PizzaCollectionDTO pizzaCollectionDto = new PizzaCollectionDTO();
         //цикл через лямбду(стрим)
-        modelMap.forEach((component, componentAmount) -> pizzaCollectionDto.getEntries().add(new PizzaDTO(component,componentAmount)));
+        modelMap.forEach((component, componentAmount) ->
+                pizzaCollectionDto.getEntries().add(new PizzaDTO(component, componentAmount)));
         return pizzaCollectionDto;
     }
 }
