@@ -1,7 +1,7 @@
 ALTER TABLE public.receipts
     add constraint receipt_cashier_fk
         foreign key (receipt_cashier)
-            references public.cashier (cashier_id)
+            references public.cashiers (cashier_id)
             ON DELETE RESTRICT;
 ALTER TABLE public.receipts
     add constraint receipt_market_fk

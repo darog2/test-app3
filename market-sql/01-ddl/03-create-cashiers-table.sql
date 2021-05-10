@@ -1,4 +1,4 @@
-CREATE TABLE public.cashier
+CREATE TABLE public.cashiers
 (
     cashier_id
                       BIGINT unique
@@ -8,6 +8,6 @@ CREATE TABLE public.cashier
     cashier_last_name VARCHAR(40) not null,
     cashier_market    BIGINT      not null
 );
-ALTER TABLE public.cashier
+ALTER TABLE public.cashiers
     add constraint cashier_fullname_uc
         UNIQUE (cashier_name, cashier_last_name);
