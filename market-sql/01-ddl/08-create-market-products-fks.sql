@@ -1,0 +1,10 @@
+ALTER TABLE public.market_products
+    add constraint mp_market_fk
+        foreign key (mp_market)
+            references public.markets (market_id)
+            ON DELETE RESTRICT;
+ALTER TABLE public.market_products
+    add constraint mp_product_fk
+        foreign key (mp_product)
+            references public.products (product_id)
+            ON DELETE RESTRICT;
