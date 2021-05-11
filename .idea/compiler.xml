@@ -12,5 +12,8 @@
         <module name="pizza" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="tax" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
