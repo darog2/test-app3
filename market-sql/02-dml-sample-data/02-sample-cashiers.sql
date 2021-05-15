@@ -8,9 +8,7 @@ INSERT INTO public.cashiers
  cashier_salary)
 values ('Ivan','Ivanov',3,'1995-08-17','2019-06-19',1150),
        ('John','Doe',
-        (select market_id
-         from public.markets
-         where market_name = 'ATB #3'),
+        f_get_market_id_by_name( 'ATB #3'),
        '1999-03-01','2019-02-11',850),
        ('John','Brown',
         (select market_id
