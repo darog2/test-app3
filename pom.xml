@@ -13,6 +13,7 @@
         <module>game</module>
         <module>pizza</module>
         <module>person-generator</module>
+        <module>myseum</module>
     </modules>
     <dependencies>
         <dependency>
@@ -28,7 +29,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.22</version>
+            <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
 
