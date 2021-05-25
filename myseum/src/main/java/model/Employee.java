@@ -1,11 +1,13 @@
 package model;
 
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 
 @Data
-public class Employee {//todo: are employees a humans?
+@SuperBuilder
+public class Employee extends Human {
     private String lastName;
     private Date age;
     private String education;

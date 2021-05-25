@@ -1,11 +1,13 @@
 package model;
 
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 @Data
-public class Museum {//todo: entity?
-    private int id;
+@SuperBuilder
+public class Museum extends BaseEntity {
     private String nameMuseum;
-    //todo: address, departments, contacts?
-
+    private Address addressMuseum;
+    private Department departmentMuseum;
+    private Contacts contactsMuseum;
 }

@@ -5,8 +5,8 @@ import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder
-public class Department {//todo: entity?
+public class Department extends BaseEntity {
     private String description;
-   private Employee employee;//todo: only one?
+   private Employee employees;
    private Contacts contact;
 }

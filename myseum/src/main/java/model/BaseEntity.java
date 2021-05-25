@@ -12,13 +12,4 @@ public abstract class BaseEntity {
     private String name;
     private Date registrationDate;
 
-    BaseEntity(long id,String name,Date registrationDate){
-        this.id=id;
-        this.name=name;
-        this.registrationDate=registrationDate;
-
-    }
-
-    public BaseEntity() {
-    }
 }
