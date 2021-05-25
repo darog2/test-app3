@@ -1,4 +1,4 @@
-package com.dungeon;
+package com.dungeon.person;
 
 import com.dungeon.person.config.AddressGeneratorConfigurator;
 import com.dungeon.person.config.Configurator;
@@ -8,8 +8,11 @@ import com.dungeon.person.model.Human;
 import com.dungeon.person.util.DateFormatUtil;
 
 import java.text.ParseException;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class RandomHumanApplication {
 
@@ -35,12 +38,7 @@ public class RandomHumanApplication {
                                             .birthDates("01.01.1975", "01.01.2003")
                                             .employedDates("01.01.2019", "01.01.2021")
                             );
-            List<Human> humans = new LinkedList<>();
-            for (int i = 0; i < 10; i++) {
-                Human generate = personGenerator.generate();
-                humans.add(generate);
-                System.out.println(generate.getBirthDate());
-            }
+
             StringBuilder insert = new StringBuilder("INSERT INTO public.cashiers\n" +
                     "(cashier_name,\n" +
                     " cashier_last_name,\n" +
@@ -49,16 +47,19 @@ public class RandomHumanApplication {
                     " cashier_date_of_employment,\n" +
                     " cashier_salary)\n" +
                     "values");
+            Set<Human>humans=new HashSet<>();
             for (int i = 1; i < 5; i++) {
                 for (int j = 0; j < 15; j++) {
                     Human human = personGenerator.generate();
-                    insert.append(String.format(HUMAN_TEMPLATE,
-                            human.getName(),
-                            human.getLastName(),
-                            i,
-                            DateFormatUtil.SQL_INSERT_DATE_FORMAT.format(human.getBirthDate()),
-                            DateFormatUtil.SQL_INSERT_DATE_FORMAT.format(human.getEmployedDate()),
-                            human.getSalary()));
+                    if (humans.add(human)) {
+                        insert.append(String.format(HUMAN_TEMPLATE,
+                                human.getName(),
+                                human.getLastName(),
+                                i,
+                                DateFormatUtil.SQL_INSERT_DATE_FORMAT.format(human.getBirthDate()),
+                                DateFormatUtil.SQL_INSERT_DATE_FORMAT.format(human.getEmployedDate()),
+                                human.getSalary()));
+                    }
                 }
             }
             System.out.println(insert);

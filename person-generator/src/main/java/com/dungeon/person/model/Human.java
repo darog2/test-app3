@@ -21,6 +21,6 @@ public class Human implements Comparable<Human>{
 
     @Override
     public int compareTo(Human o) {
-        return this.name.compareTo(o.name);
+        return (this.name+" "+this.lastName).compareTo(o.name+" "+o.lastName);
     }
 }
