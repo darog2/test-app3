@@ -1,18 +1,13 @@
 package model;
 
 import lombok.Data;
-import lombok.experimental.SuperBuilder;
-
-import java.util.Date;
 
 @Data
-@SuperBuilder
-
-public class Client extends BaseEntity {
+public class Client {
+    private String name;
     private String lastName;
+    private int id;
     private String numberPhone;
-    private Date age;
-
-
+    private int age;
 
 }

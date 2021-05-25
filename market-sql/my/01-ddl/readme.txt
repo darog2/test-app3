@@ -1,0 +1,7 @@
+операторы определения данных (Data Definition Language, DDL):
+CREATE создаёт объект базы данных (саму базу, таблицу, представление, пользователя и так далее),
+ALTER изменяет объект,
+DROP удаляет объект;
+
+
+SET GLOBAL log_bin_trust_function_creators = 1;
