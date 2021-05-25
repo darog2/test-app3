@@ -7,6 +7,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Department {
     private String description;
-    Employee employee;
-    Contacts contact;
+   private Employee employee;
+   private Contacts contact;
 }

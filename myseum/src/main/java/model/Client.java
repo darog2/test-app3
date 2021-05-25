@@ -1,13 +1,12 @@
 package model;
 
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
+
+import java.util.Date;
 
 @Data
-public class Client {
-    private String name;
-    private String lastName;
-    private int id;
-    private String numberPhone;
-    private int age;
+@SuperBuilder
+public class Client extends Human{
 
 }
