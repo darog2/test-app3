@@ -5,7 +5,7 @@ import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder
-public class Contacts {
+public class Contacts {//todo: "Contacts", not "Contact"
     private String phoneNumber;
     private String email;
 }
