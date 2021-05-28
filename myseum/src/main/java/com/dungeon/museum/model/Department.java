@@ -1,4 +1,4 @@
-package model;
+package com.dungeon.museum.model;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
@@ -7,6 +7,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Department extends BaseEntity {
     private String description;
-   private Employee employees;
-   private Contacts contact;
+    private Employee employees;
+    private Contacts contact;
 }

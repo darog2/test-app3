@@ -1,4 +1,4 @@
-package model;
+package com.dungeon.museum.model;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
@@ -11,5 +11,5 @@ public  abstract class Human extends BaseEntity{
     private Address address;
     private String lastName;
     private Date dateOfBirth;
-    private Contacts contact;
+    private Contacts contacts;
 }

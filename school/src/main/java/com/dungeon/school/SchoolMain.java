@@ -21,14 +21,14 @@ public class SchoolMain {
 //                "Wolfskin",
 //                "str.pushkina h. colotushkina2",
 //                "123 582 9541",
-//                new Date(),
+//                new com.dungeon.museum.Date(),
 //                "Oxford");
 //        Teacher teacher2=new Teacher(1,
 //                "John",
 //                "Doe",
 //                "str.pushkina h. colotushkina",
 //                "123 221 2211",
-//                new Date(),
+//                new com.dungeon.museum.Date(),
 //                "KPI");
 //        teacher1.getSubjectList().add(subject);
 //        teacher1.getSubjectList().add(subject1);

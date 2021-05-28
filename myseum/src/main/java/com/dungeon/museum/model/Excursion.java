@@ -1,8 +1,7 @@
-package model;
+package com.dungeon.museum.model;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
-import model.Client;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package model;
+package com.dungeon.museum.model;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;

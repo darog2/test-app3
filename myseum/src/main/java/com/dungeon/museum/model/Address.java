@@ -1,4 +1,4 @@
-package model;
+package com.dungeon.museum.model;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
@@ -11,5 +11,5 @@ public class Address {
     private String city;
     private String str;
     private int house;
-    private int postalCode;
+    private String postalCode;
 }
